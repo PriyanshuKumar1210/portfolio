@@ -1,32 +1,9 @@
-/* .navbar{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 20px 170px;
-    height: 100vh;
-    background: #161513;
-    color: white;
-    font-family: "Outfit";
-}
-
-.nav-menu{
-    display: flex;
-    list-style: none;
-    align-items: center;
-    gap: 60px;
-    font-size: 20px;
-}
-.nav-item{
-    text-decoration: none;
-}*/
-
 
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  /* background-color: #333; Dark background */
   color: white; /* Text color */
   position: relative;
   top: 0; /* Sticks the navbar to the top */
@@ -34,18 +11,7 @@
 
 }
 
-/* 
-.nav-connect{
-    padding: 20px 40px;
-    border-radius: 50px;
-    background: linear-gradient(267deg,#DA7C25 0.36%,#B923E1 102.06%);
-    font-size:22px;
-    cursor:pointer;
-    transition: 0.5s;
-}
-.nav-connect:hover{
-    transform: scale(1.05);
-}  */
+
 
 /* Navbar Container */
 
@@ -71,27 +37,53 @@
     color: #00c4cc; /* Light blue color on hover */
   }
   
+  /* .menu-icon{
+    display: none;
+  } */
+  .menu-icon{
+    display: none;
+  }
   
   /* Responsive Design */
   @media screen and (max-width: 768px) {
-    .navbar {
-      flex-direction: column;
-      align-items: flex-start;
+    *{
+      margin: 0;
+      padding: 0;
     }
-  
+
+    .navbar{
+      right: 0;
+      top: 0;
+    }
+    
+
+    .menu-icon {
+      display: block; /* Initially hidden */
+      position: fixed;
+      right: 0px; /* Move it to the right */
+      top: 10px; /* Adjust vertical position */
+      font-size: 24px;
+      cursor: pointer;
+      color: white;
+    }
+    
     .nav-menu {
+      display: none;
       flex-direction: column;
-      flex-wrap: wrap;
       width: 100%;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      background: #161513;;
+      text-align: left;
+      padding: 20px;
+    }
+    .nav-menu.active {
+      display: flex;
     }
   
     .nav-item {
-      margin: 0.5rem 0;
-    }
-  
-    .nav-connect {
-      margin-top: 1rem;
-      align-self: flex-start;
+      margin-bottom: 15px;
     }
   }
   

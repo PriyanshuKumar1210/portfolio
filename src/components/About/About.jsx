@@ -1,5 +1,6 @@
 import "./About.css";
 import AboutImage from "../../assets/profile3.jpg";
+import Skill from "../Skills/Skill.jsx";
 
 const About = () => {
   return (
@@ -29,32 +30,17 @@ const About = () => {
               projects and collaborate with teams to deliver impactful digital
               solutions.
             </p>
+
+            <p>
+              Currently, I'm pursing MCA from S.R.M University
+            </p>
           </div>
         </div>
       </div>
 
       <hr />
 
-      <div className="skills-section">
-        
-          <h2>SKILLS</h2>
-
-
-
-          <section className="section">
-
-              <span className="vertical-line"></span>
-
-          <div className="skills">
-           
-            <p>HTML & CSS</p>
-            <p>Java</p>
-            <p>Java Script</p>
-          </div>
-
-          </section>          
-          
-      </div>
+          <Skill />
 
     </div>
   );
