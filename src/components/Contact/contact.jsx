@@ -5,6 +5,7 @@ import theme_pattern from "../../assets/theme_pattern.svg";
 import mail_icon from "../../assets/mail_icon.svg";
 import call_icon from "../../assets/call_icon.svg";
 import location_icon from "../../assets/location_icon.svg";
+import SocialMediaLinks from "../SocialMedia/SocialMedia";
 
 const Contact = () => {
   const [result, setResult] = useState("");
@@ -83,6 +84,8 @@ const Contact = () => {
               <p>Modinagar, Ghaziabad</p>
             </div>
           </div>
+
+          <SocialMediaLinks />
         </div>
 
         <form onSubmit={onSubmit} className="contact-right">
