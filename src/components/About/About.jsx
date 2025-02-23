@@ -1,6 +1,7 @@
 import "./About.css";
 import AboutImage from "../../assets/profile3.jpg";
 import Skill from "../Skills/Skill.jsx";
+import Certification from "../Certification/Certification.jsx";
 
 const About = () => {
   return (
@@ -41,6 +42,10 @@ const About = () => {
       <hr />
 
           <Skill />
+
+      <hr />
+          <Certification />
+
 
     </div>
   );

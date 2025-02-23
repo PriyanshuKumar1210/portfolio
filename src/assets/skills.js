@@ -6,6 +6,8 @@ import html_img from '../assets/html.png'
 import css_img from '../assets/css.png'
 import java_img from '../assets/java.png'
 import linux_img from '../assets/linux.png'
+import node_img from '../assets/node.png'
+import express_img from '../assets/express.jpeg'
 
 const skillsData = [
 
@@ -43,14 +45,27 @@ const skillsData = [
     },
     {
         id:7,
-        name:"java",
+        name:"Java",
         icon:java_img
     },
     {
         id:8,
-        name:"linux",
+        name:"Linux",
         icon:linux_img
-    }
+    },
+
+    {
+        id:9,
+        name:"Node Js",
+        icon:node_img
+    },
+    {
+        id:10,
+        name:"Express Js",
+        icon:express_img
+    },
+
 ]
+
 
 export default skillsData;

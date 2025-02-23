@@ -4,7 +4,7 @@ import skillsData from "../../assets/skills.js";
 const Skill = () => {
   return (
     <div className="skills">
-      <h2>MY SKILLS</h2>
+      <h1>MY SKILLS</h1>
       <div className="skills-items">
         {skillsData.map((data, id) => {
           return (

@@ -1,0 +1,46 @@
+.certificate-container{
+    margin-top: 30px;
+    bottom: 100px;
+}
+
+.certificates {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    place-items: center; /* 🔹 Ensures images are centered in their grid cells */
+    bottom: 50px;
+}
+
+.certificates img {
+    box-sizing: border-box;
+    width: 350px;
+    height: auto;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.certificates img:hover {
+    transform: scale(1.1);
+    border: 4px solid #ff00ff;
+    border-radius: 10px;
+    transition: 0.5s;
+}
+
+/* Responsive Layout */
+@media (max-width: 1250px) {
+    .certificates{
+        grid-template-columns: 1fr;
+        gap: 30px;
+        place-items: center; /* 🔹 This keeps images centered */
+    }
+
+.certificates img {
+        width: auto; /* 🔹 Prevents stretching */
+        height: auto;
+        max-width: 100%; /* 🔹 Makes images responsive */
+    }
+
+    
+}
+
+
