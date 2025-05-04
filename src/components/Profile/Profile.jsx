@@ -10,7 +10,7 @@ const Profile = () => {
   const navigate = useNavigate(); //it uses to navigate a contact page from Profile
 
   const resumeDownload = ()=>{
-      window.open("/MyNew_Resume.pdf","_blank");
+      window.open("/PriyanshuKumar_Resume.pdf","_blank");
       console.log("Resume Download");
   }
   return (
