@@ -12,28 +12,31 @@ const About = () => {
       </div>
 
       <div className="about-sections">
-        
+
         <div className="about-left">
           <img id="image" src={AboutImage} alt="" />
         </div>
 
         <div className="about-right">
           <div className="about-para">
-            <p>
-              I am a passionate and dedicated fresher in web development with a
-              strong foundation in front-end and back-end technologies. I have
-              hands-on experience with HTML, CSS, JavaScript, and frameworks
-              like React and Bootstrap, as well as basic knowledge of databases
-              and server-side programming. I am enthusiastic about creating
-              user-friendly, responsive websites and continuously learning new
-              technologies to improve my skills. With a keen eye for design and
-              a problem-solving mindset, I am eager to contribute to dynamic
-              projects and collaborate with teams to deliver impactful digital
-              solutions.
-            </p>
+            <h4> Hi, I’m Priyanshu Kumar, a Full Stack Developer with a strong foundation in both front-end and back-end technologies. 
+              I specialize in building scalable, user-friendly web applications 
+              using the MERN stack (MongoDB, Express.js, React.js, Node.js).
+           
+
+            </h4>
+
+            <p>I’ve successfully developed and deployed several real-world projects, including a real-time chat app, a food delivery platform, 
+              a currency exchange tool, and my own personal portfolio website.
+              My expertise spans responsive UI design, RESTful API development, 
+              JWT-based authentication, and working with databases like MongoDB and SQL.</p>
 
             <p>
-              Currently, I'm pursing MCA from S.R.M University
+              I hold a Master’s degree in Computer Applications (MCA) from SRM University, 
+              and I’m passionate about solving real-world problems through clean code, thoughtful design, 
+              and continuous learning. With a strong grasp of Data Structures & Algorithms and practical 
+              experience across the development lifecycle,
+              I’m eager to contribute to impactful digital solutions in a collaborative team environment.
             </p>
           </div>
         </div>
@@ -41,10 +44,10 @@ const About = () => {
 
       <hr />
 
-          <Skill />
+      <Skill />
 
       <hr />
-          <Certification />
+      <Certification />
 
 
     </div>
