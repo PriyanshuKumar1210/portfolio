@@ -2,9 +2,24 @@ import "./MyWork.css";
 import theme_pattern from '../../assets/theme_pattern.svg';
 import work from '../../assets/mywork_data.js'
 import arrow_icon from '../../assets/arrow_icon.svg'
-
+import { useState } from 'react';
 
 const MyWork = () => {
+  const [showAll, setShowAll] = useState(false);
+  const [hoveredProject, setHoveredProject] = useState(null);
+
+  const displayedWork = showAll ? work : work.slice(0, 4);
+
+
+
+  const handleSourceCode = (sourceUrl) => {
+    if (sourceUrl) {
+      window.open(sourceUrl, '_blank');
+    } else {
+      alert('Source code not available for this project');
+    }
+  };
+
   return (
     <div className="mywork">
       <div className="mywork-title">
@@ -12,26 +27,41 @@ const MyWork = () => {
         <img src={theme_pattern} alt="" />
       </div>
 
-
-{/*---------- It contains the multiple project works which are completed by me --------- */}
-
-{/* Add a map function to pass the projects data from assests folder */}
-
+      {/*---------- Enhanced project showcase with interactive cards --------- */}
+      
       <div className="mywork-container">
-            {work.map((work,index)=>{
-              return(
-                <img key={index} src={work.w_img} alt=""/>
-              )
-            })}
+        {displayedWork.map((project, index) => (
+          <div 
+            key={index} 
+            className="project-card"
+            onMouseEnter={() => setHoveredProject(index)}
+            onMouseLeave={() => setHoveredProject(null)}
+          >
+            <div className="project-image-wrapper">
+              <img src={project.w_img} alt={project.w_name} />
+              <div className={`project-overlay ${hoveredProject === index ? 'active' : ''}`}>
+                <div className="project-info">
+                  <h3>{project.w_name}</h3>
+                  <p>{project.w_description}</p>
+                  <div className="project-buttons">
+                
+                    <button 
+                      className="btn-code"
+                      onClick={() => handleSourceCode(project.source_url)}
+                    >
+                      Source Code
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
 
+      
 
-      <div className="mywork-showmore">
-        <p>Show More</p>
-        <img src={arrow_icon} alt="" />
-      </div>
-
-{/*------- Ends the section which shows the projects works --------*/}
+      {/*------- Enhanced section ends --------*/}
     </div>
   )
 }

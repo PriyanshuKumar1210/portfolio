@@ -19,7 +19,7 @@ const Navbar = () => {
   return (
     <div className="navbar">
       {/* <img src="" alt="" /> */}
-      <h4>PortFolio</h4>
+      <h4 id="name">Priyanshu Kumar</h4>
       <div className="menu-icon" onClick={toggleMenu}>
         &#9776;
       </div>
