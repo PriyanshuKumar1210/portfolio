@@ -1,19 +1,21 @@
-
 import { useState } from "react";
 import "./contact.css";
-import theme_pattern from "../../assets/theme_pattern.svg";
-import mail_icon from "../../assets/mail_icon.svg";
-import call_icon from "../../assets/call_icon.svg";
-import location_icon from "../../assets/location_icon.svg";
 import SocialMediaLinks from "../SocialMedia/SocialMedia";
 
-const Contact = () => {
-  const [result, setResult] = useState("");
+export default function Contact() {
+  const [status, setStatus] = useState("");
+  const [isSending, setIsSending] = useState(false);
 
   const onSubmit = async (event) => {
     event.preventDefault();
-    setResult("Sending....");
-    const formData = new FormData(event.target);
+
+    // Save form reference before async operation
+    const form = event.currentTarget;
+
+    setIsSending(true);
+    setStatus("Sending your message…");
+
+    const formData = new FormData(form);
     formData.append("access_key", "c507f54c-6a7d-4744-bbab-73457a7285a8");
 
     try {
@@ -23,86 +25,98 @@ const Contact = () => {
       });
 
       const data = await response.json();
-      if (data.success) {
-        alert("Message sent successfully!");
-      } else {
-        alert("Failed to send message. Please try again.");
+
+      if (!response.ok || !data.success) {
+        throw new Error(data.message || "Unable to send message.");
       }
+
+      setStatus("Thanks! Your message has been sent successfully.");
+
+      // Reset form safely
+      form.reset();
     } catch (error) {
-      console(error);
-      alert("An error occurred. Please check your network and try again.");
+      setStatus(
+        error.message || "Something went wrong. Please email me directly.",
+      );
+    } finally {
+      setIsSending(false);
     }
-  };
-
-  const handleCall = () => {
-    const isMobile = /iphone|Android|iPad/i.test(navigator.userAgent);
-    if (isMobile) {
-      window.location.href = "tel:+91 8340181676";
-    } else {
-      alert("To call, use Skype or VoIP or dial manually.");
-    }
-  };
-
-  const copyToClipBoard = () => {
-    navigator.clipboard.writeText("+91 8340181676");
-    alert("Phone number copied!");
-  };
-
-  const handleEmail = () => {
-    window.location.href = "mailto:priyanshukumar23933@gmail.com";
   };
 
   return (
-    <div className="contact">
-      <div className="contact-title">
-        <h1>Get in Touch</h1>
-        <img src={theme_pattern} alt="Pattern" />
+    <section className="contact-page section-shell">
+      <div className="section-intro">
+        <p className="section-kicker">GET IN TOUCH</p>
+        <h1 className="section-heading">
+          Let's build something{" "}
+          <span className="gradient-text">meaningful.</span>
+        </h1>
+        <p className="section-copy">
+          Have a role, project or interesting problem in mind? I'd be happy to
+          hear from you.
+        </p>
       </div>
-
-      <div className="contact-section">
-        <div className="contact-left">
-          <h2>Let's Talk</h2>
+      <div className="contact-layout">
+        <div className="contact-info">
+          <h2>Start a conversation.</h2>
           <p>
-            Hey there! If you’re looking for a developer who’s passionate about
-            building great digital experiences, I’d love to hear from you.
+            I'm open to full-time opportunities and conversations around web
+            development, software engineering and building useful products.
           </p>
-
-          <div className="contact-details">
-            <div className="contact-detail" onClick={handleEmail}>
-              <img src={mail_icon} alt="Email Icon" />
-              <p>priyanshukumar23933@gmail.com</p>
+          <a
+            className="contact-method"
+            href="mailto:priyanshukumar23933@gmail.com"
+          >
+            <span>✉</span>
+            <div>
+              <small>Email me</small>
+              <strong>priyanshukumar23933@gmail.com</strong>
             </div>
-
-            <div className="contact-detail">
-              <img src={call_icon} alt="Call Icon" />
-              <p onClick={handleCall}>8340181676</p>
-              <button onClick={copyToClipBoard}>Copy</button>
-            </div>
-
-            <div className="contact-detail">
-              <img src={location_icon} alt="Location Icon" />
-              <p>Modinagar, Ghaziabad</p>
+          </a>
+          <div className="contact-method">
+            <span>⌖</span>
+            <div>
+              <small>Location</small>
+              <strong>Sec 59, Noida, India</strong>
             </div>
           </div>
-
           <SocialMediaLinks />
         </div>
-
-        <form onSubmit={onSubmit} className="contact-right">
-          <label>Your Name</label>
-          <input type="text" placeholder="Enter your name" name="name" required />
-
-          <label>Email</label>
-          <input type="email" placeholder="Enter your email" name="email" required />
-
-          <label>Write your message here</label>
-          <textarea name="message" rows="8" placeholder="Enter Your Message" required></textarea>
-
-          <button type="submit" className="contact-submit">Submit</button>
+        <form onSubmit={onSubmit} className="contact-form">
+          <label htmlFor="contact-name">Your name</label>
+          <input
+            id="contact-name"
+            name="name"
+            type="text"
+            placeholder="John Doe"
+            required
+          />
+          <label htmlFor="contact-email">Email address</label>
+          <input
+            id="contact-email"
+            name="email"
+            type="email"
+            placeholder="john@example.com"
+            required
+          />
+          <label htmlFor="contact-message">Message</label>
+          <textarea
+            id="contact-message"
+            name="message"
+            rows="5"
+            placeholder="Tell me a little about what you have in mind…"
+            required
+          />
+          <button className="primary-button" type="submit" disabled={isSending}>
+            {isSending ? "Sending…" : "Send message ↗"}
+          </button>
+          {status && (
+            <p className="form-status" role="status">
+              {status}
+            </p>
+          )}
         </form>
       </div>
-    </div>
+    </section>
   );
-};
-
-export default Contact;
+}

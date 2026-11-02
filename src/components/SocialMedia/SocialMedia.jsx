@@ -31,7 +31,7 @@ const SocialMediaLinks = () => {
 
       <div className="social-icons-item">
         <a
-          href="https://www.instagram.com/mr_priyanshukumar?igsh=OTNwdHJlb251Y3Rn"
+          href="https://www.instagram.com/mr_priyanshusinha?igsh=OTNwdHJlb251Y3Rn"
           target="_blank"
           rel="noopener noreferrer"
         >

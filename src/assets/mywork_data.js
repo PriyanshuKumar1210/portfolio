@@ -1,38 +1,44 @@
-import project1_img from '../assets/Project1.png'
-import project2_img from '../assets/Project2.png'
-import project3_img from '../assets/Project3.png'
-import currencyConvertor from '../assets/CurrencyConvertor.png'
-
+import project1_img from '../assets/Project1.png';
+import currencyConvertor from '../assets/CurrencyConvertor.png';
 
 const mywork_data = [
-    {
-        w_no: 1,
-        w_name: "Food Delivery Platform",
-        w_img: project1_img,
-        w_description: "Real-time chat app with socket.io",
-        source_url: "https://github.com/PriyanshuKumar1210/Apna-Rasoi"
-    },
-    {
-        w_no: 2,
-        w_name: "Food Delivery Platform",
-        w_img: project2_img,
-        w_description: "MERN stack food delivery application",
-        source_url: "https://github.com/PriyanshuKumar1210/Apna-Rasoi"
-    },
-    {
-        w_no: 3,
-        w_name: "Portfolio Website",
-        w_img: project3_img,
-        w_description: "Personal portfolio built with React",
-        source_url: "https://github.com/PriyanshuKumar1210/portfolio"
-    },
-    {
-        w_no: 4,
-        w_name: "Currency Converter",
-        w_img: currencyConvertor,
-        w_description: "Real-time currency exchange tool",
-         source_url: "https://github.com/PriyanshuKumar1210/currencyConvertor"
-    }
-]
- 
+  {
+    id: 'osm',
+    w_name: 'On-Screen Marking Platform',
+    category: 'Professional work',
+    w_description: 'A digital evaluation platform focused on streamlined examination workflows and intuitive user experiences.',
+    technologies: ['React.js', 'TypeScript', 'ASP.NET Core', 'PostgreSQL'],
+    w_img: null,
+    source_url: null,
+    confidential: true,
+  },
+  {
+    id: 'callervault',
+    w_name: 'CallerVault',
+    category: 'Full-stack application',
+    w_description: 'A client communication application for organizing call history, conversations, messages and follow-up tasks.',
+    technologies: ['React.js', 'JavaScript', 'PostgreSQL', 'REST APIs'],
+    w_img: project1_img,
+    source_url: null,
+  },
+  {
+    id: 'apna-rasoi',
+    w_name: 'Apna Rasoi',
+    category: 'Personal project',
+    w_description: 'An online food delivery application built to provide a smooth food discovery and ordering experience.',
+    technologies: ['React.js', 'Node.js', 'Express.js', 'MongoDB'],
+    w_img: project1_img,
+    source_url: 'https://github.com/PriyanshuKumar1210/Apna-Rasoi',
+  },
+  {
+    id: 'currency-converter',
+    w_name: 'Currency Converter',
+    category: 'Personal project',
+    w_description: 'A currency conversion tool with a straightforward interface for checking exchange values.',
+    technologies: ['JavaScript', 'React.js', 'API Integration'],
+    w_img: currencyConvertor,
+    source_url: 'https://github.com/PriyanshuKumar1210/currencyConvertor',
+  },
+];
+
 export default mywork_data;

@@ -1,52 +1,39 @@
-// i used profile instead of hero
-/****** This is a profile section which is used to designed a developer profile ** */
+import './Profile.css';
+import profileImg from '../../assets/profile5.jpg';
+import { Link } from 'react-router-dom';
 
-import "./Profile.css";
-import profile_img from "../../assets/profile5.jpg";
-import { useNavigate } from "react-router-dom";
-
-const Profile = () => {
-
-  const navigate = useNavigate(); //it uses to navigate a contact page from Profile
-
-  const resumeDownload = () => {
-    window.open("/Priyanshu_Kumar_Resume.pdf", "_blank");
-    console.log("Resume Download");
-  }
+export default function Profile() {
   return (
-    <div className="profile">
-
-      {/*  It shows the user profile in home tab*/}
-
-      <div className="profile-image">
-        <img id="profile_image" src={profile_img} alt="Profile image" />
-      </div>
-
-      {/*  It stores brief infromation about the developer/portfolio-user */}
-
-      <div className="profile-info">
-
-        <h1>Hey I'm <span>Priyanshu Kumar</span></h1>
-        {/* <p>I am a Full Stack Developer from Bihar.</p>  */}
-       {/* <h1>Priyanshu Kumar</h1> */}
-         <p>Full Stack Developer | React • Node.js • MongoDB</p>
-       <p>
-          I specialize in building scalable and user-focused web applications using the MERN stack.
-          With real-world projects like a real-time chat app, food delivery platform, and currency exchange tool,
-          I combine clean code, problem-solving skills, and a passion for innovation to deliver impactful digital experiences.
+    <section className="hero section-shell">
+      <div className="hero-copy">
+        <div className="availability"><span className="availability-dot" /> Open to full-time opportunities</div>
+        <p className="hero-eyebrow">HELLO, I'M</p>
+        <h1>Priyanshu <span className="gradient-text">Kumar.</span></h1>
+        <h2>Full Stack Developer <span className="hero-divider">/</span> React &amp; ASP.NET Core</h2>
+        <p className="hero-description">
+          I build thoughtful, reliable web applications — from polished React interfaces
+          to secure APIs and data-driven backend systems. I enjoy turning complex
+          requirements into simple experiences that work well for people.
         </p>
-        <p>
-          MCA Graduate | Open to Full-Time Opportunities | Let's Connect!
-        </p>
-
-        <div className="profile-action">
-          <div className="profile-connect" onClick={() => navigate("/contact")}>Connect with me</div>
-          <div className="profile-resume" onClick={resumeDownload}>My Resume</div>
+        <div className="hero-tags">
+          <span>React.js</span><span>ASP.NET Core</span><span>PostgreSQL</span><span>SQL Server</span>
         </div>
-
+        <div className="hero-actions">
+          <Link to="/projects" className="primary-button">Explore my work <span>↗</span></Link>
+          <a className="secondary-button" href="/Priyanshu_Kumar_Resume.pdf" target="_blank" rel="noreferrer">View resume ↗</a>
+        </div>
+        <div className="hero-social">
+          <a href="https://github.com/priyanshukumar1210" target="_blank" rel="noreferrer">GitHub ↗</a>
+          <a href="https://www.linkedin.com/in/priyanshu-kumar-9285431b8/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+          <a href="mailto:priyanshukumar23933@gmail.com">Email ↗</a>
+        </div>
       </div>
-    </div>
+      <div className="hero-visual">
+        <div className="hero-orbit orbit-one" /><div className="hero-orbit orbit-two" />
+        <div className="hero-photo-frame"><img src={profileImg} alt="Priyanshu Kumar" /></div>
+        <div className="floating-card floating-card-top"><span className="floating-icon">⌘</span><div><strong>Full Stack</strong><small>Development</small></div></div>
+        <div className="floating-card floating-card-bottom"><span className="status-bars">▂ ▅ ▇</span><div><strong>Always learning</strong><small>Build · Improve · Repeat</small></div></div>
+      </div>
+    </section>
   );
-};
-
-export default Profile;
+}
